@@ -15,6 +15,11 @@
   "license": "${license_spdx_id}",
   "icon": "assets/icon.png",
   "environment": "*",
+  "entrypoints": {
+    "client": [
+      "net.litetex.noway.client.NoWayFabricClientInitializer"
+    ]
+  },
   "mixins": [
     "no-way.mixins.json"
   ],
