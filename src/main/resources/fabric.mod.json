@@ -15,10 +15,15 @@
   "license": "${license_spdx_id}",
   "icon": "assets/icon.png",
   "environment": "*",
+  "entrypoints": {
+    "client": [
+      "net.litetex.noway.client.NoWayFabricClientInitializer"
+    ]
+  },
   "mixins": [
-    "template-placeholder.mixins.json"
+    "no-way.mixins.json"
   ],
-  "accessWidener": "template-placeholder.accesswidener",
+  "accessWidener": "no-way.accesswidener",
   "recommends": {
     "fabricloader": ">=${loader_version}",
     "minecraft": ">=${minecraft_version}"
