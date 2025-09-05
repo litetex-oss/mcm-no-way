@@ -24,9 +24,13 @@
     "no-way.mixins.json"
   ],
   "accessWidener": "no-way.accesswidener",
+  "requires": {
+    "fabric-api": "*"
+  },
   "recommends": {
     "fabricloader": ">=${loader_version}",
-    "minecraft": ">=${minecraft_version}"
+    "minecraft": ">=${minecraft_version}",
+    "fabric-api": ">=${fabric_api_version}"
   },
   "custom": {
     "modmenu": {
