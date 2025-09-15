@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.litetex.noway.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "LivingEntityMixin",
+    "ServerPlayerEntityMixin",
+    "ServerWaypointHandlerMixin"
+  ],
+  "client": [
+    "client.InGameHudMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
