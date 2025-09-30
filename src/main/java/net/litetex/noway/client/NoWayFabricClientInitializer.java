@@ -87,7 +87,7 @@ public class NoWayFabricClientInitializer implements ClientModInitializer
 			"no-way.toggle-always-hide-locator-bar",
 			InputUtil.Type.KEYSYM,
 			GLFW.GLFW_KEY_F10,
-			KeyBinding.MISC_CATEGORY
+			KeyBinding.Category.MISC
 		));
 		
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
