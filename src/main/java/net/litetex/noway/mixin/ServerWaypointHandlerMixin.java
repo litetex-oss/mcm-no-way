@@ -6,37 +6,37 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.network.ServerWaypointHandler;
-import net.minecraft.world.waypoint.ServerWaypoint;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.waypoints.ServerWaypointManager;
+import net.minecraft.world.waypoints.WaypointTransmitter;
 
 
-@Mixin(ServerWaypointHandler.class)
+@Mixin(ServerWaypointManager.class)
 public abstract class ServerWaypointHandlerMixin
 {
 	@Inject(
-		method = "onTrack(Lnet/minecraft/world/waypoint/ServerWaypoint;)V",
+		method = "trackWaypoint(Lnet/minecraft/world/waypoints/WaypointTransmitter;)V",
 		at = @At("HEAD"),
 		cancellable = true)
-	public void onTrack(final ServerWaypoint serverWaypoint, final CallbackInfo ci)
+	public void onTrack(final WaypointTransmitter serverWaypoint, final CallbackInfo ci)
 	{
 		ci.cancel();
 	}
 	
 	@Inject(
-		method = "onUpdate(Lnet/minecraft/world/waypoint/ServerWaypoint;)V",
+		method = "updateWaypoint(Lnet/minecraft/world/waypoints/WaypointTransmitter;)V",
 		at = @At("HEAD"),
 		cancellable = true)
-	public void onUpdate(final ServerWaypoint serverWaypoint, final CallbackInfo ci)
+	public void onUpdate(final WaypointTransmitter serverWaypoint, final CallbackInfo ci)
 	{
 		ci.cancel();
 	}
 	
 	@Inject(
-		method = "onUntrack(Lnet/minecraft/world/waypoint/ServerWaypoint;)V",
+		method = "untrackWaypoint(Lnet/minecraft/world/waypoints/WaypointTransmitter;)V",
 		at = @At("HEAD"),
 		cancellable = true)
-	public void onUntrack(final ServerWaypoint serverWaypoint, final CallbackInfo ci)
+	public void onUntrack(final WaypointTransmitter serverWaypoint, final CallbackInfo ci)
 	{
 		ci.cancel();
 	}
@@ -45,16 +45,16 @@ public abstract class ServerWaypointHandlerMixin
 		method = "addPlayer",
 		at = @At("HEAD"),
 		cancellable = true)
-	public void addPlayer(final ServerPlayerEntity player, final CallbackInfo ci)
+	public void addPlayer(final ServerPlayer player, final CallbackInfo ci)
 	{
 		ci.cancel();
 	}
 	
 	@Inject(
-		method = "updatePlayerPos",
+		method = "updatePlayer",
 		at = @At("HEAD"),
 		cancellable = true)
-	public void updatePlayerPos(final ServerPlayerEntity player, final CallbackInfo ci)
+	public void updatePlayerPos(final ServerPlayer player, final CallbackInfo ci)
 	{
 		ci.cancel();
 	}
@@ -63,13 +63,13 @@ public abstract class ServerWaypointHandlerMixin
 		method = "removePlayer",
 		at = @At("HEAD"),
 		cancellable = true)
-	public void removePlayer(final ServerPlayerEntity player, final CallbackInfo ci)
+	public void removePlayer(final ServerPlayer player, final CallbackInfo ci)
 	{
 		ci.cancel();
 	}
 	
 	@Inject(
-		method = "clear",
+		method = "breakAllConnections",
 		at = @At("HEAD"),
 		cancellable = true)
 	public void removePlayer(final CallbackInfo ci)
@@ -78,19 +78,19 @@ public abstract class ServerWaypointHandlerMixin
 	}
 	
 	@Inject(
-		method = "refreshTracking(Lnet/minecraft/world/waypoint/ServerWaypoint;)V",
+		method = "remakeConnections(Lnet/minecraft/world/waypoints/WaypointTransmitter;)V",
 		at = @At("HEAD"),
 		cancellable = true)
-	public void refreshTracking(final ServerWaypoint serverWaypoint, final CallbackInfo ci)
+	public void refreshTracking(final WaypointTransmitter serverWaypoint, final CallbackInfo ci)
 	{
 		ci.cancel();
 	}
 	
 	@Inject(
-		method = "isLocatorBarEnabled",
+		method = "isLocatorBarEnabledFor",
 		at = @At("HEAD"),
 		cancellable = true)
-	private static void isLocatorBarEnabled(final ServerPlayerEntity player, final CallbackInfoReturnable<Boolean> cir)
+	private static void isLocatorBarEnabled(final ServerPlayer player, final CallbackInfoReturnable<Boolean> cir)
 	{
 		cir.setReturnValue(false);
 	}

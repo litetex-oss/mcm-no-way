@@ -5,18 +5,18 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 import net.litetex.noway.client.NoWayClient;
-import net.minecraft.client.gui.hud.InGameHud;
-import net.minecraft.client.world.ClientWaypointHandler;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.client.waypoints.ClientWaypointManager;
 
 
-@Mixin(InGameHud.class)
+@Mixin(Gui.class)
 public abstract class InGameHudMixin
 {
 	@Redirect(
-		method = "getCurrentBarType",
-		at = @At(value = "INVOKE", target = "Lnet/minecraft/client/world/ClientWaypointHandler;hasWaypoint()Z"))
-	public boolean hasWaypoint(final ClientWaypointHandler instance)
+		method = "nextContextualInfoState",
+		at = @At(value = "INVOKE", target = "Lnet/minecraft/client/waypoints/ClientWaypointManager;hasWaypoints()Z"))
+	public boolean hasWaypoint(final ClientWaypointManager instance)
 	{
-		return !NoWayClient.instance().alwaysHideLocatorBar() && instance.hasWaypoint();
+		return !NoWayClient.instance().alwaysHideLocatorBar() && instance.hasWaypoints();
 	}
 }
