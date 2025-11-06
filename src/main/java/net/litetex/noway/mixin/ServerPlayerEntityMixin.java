@@ -5,14 +5,14 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.level.ServerPlayer;
 
 
-@Mixin(ServerPlayerEntity.class)
+@Mixin(ServerPlayer.class)
 public abstract class ServerPlayerEntityMixin
 {
 	@Inject(
-		method = "canReceiveWaypoints",
+		method = "isReceivingWaypoints",
 		at = @At("HEAD"),
 		cancellable = true)
 	public void canReceiveWaypoints(final CallbackInfoReturnable<Boolean> cir)

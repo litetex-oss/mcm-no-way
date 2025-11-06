@@ -11,15 +11,15 @@ import org.slf4j.LoggerFactory;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.mojang.blaze3d.platform.InputConstants;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.loader.api.FabricLoader;
 import net.litetex.noway.client.config.ClientConfig;
-import net.minecraft.client.option.KeyBinding;
-import net.minecraft.client.util.InputUtil;
-import net.minecraft.text.Text;
+import net.minecraft.client.KeyMapping;
+import net.minecraft.network.chat.Component;
 
 
 public class NoWayFabricClientInitializer implements ClientModInitializer
@@ -83,19 +83,19 @@ public class NoWayFabricClientInitializer implements ClientModInitializer
 	
 	private void initKeys()
 	{
-		final KeyBinding kbToggleAlwaysHideLocatorBar = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+		final KeyMapping kbToggleAlwaysHideLocatorBar = KeyBindingHelper.registerKeyBinding(new KeyMapping(
 			"no-way.toggle-always-hide-locator-bar",
-			InputUtil.Type.KEYSYM,
+			InputConstants.Type.KEYSYM,
 			GLFW.GLFW_KEY_F10,
-			KeyBinding.Category.MISC
+			KeyMapping.Category.MISC
 		));
 		
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
-			while(kbToggleAlwaysHideLocatorBar.wasPressed())
+			while(kbToggleAlwaysHideLocatorBar.consumeClick())
 			{
 				final boolean on = NoWayClient.instance().toggleAlwaysHideLocatorBar();
-				client.inGameHud.getChatHud().addMessage(
-					Text.translatable("no-way.always-hide-locator-bar." + (on ? "on" : "off")));
+				client.gui.getChat().addMessage(
+					Component.translatable("no-way.always-hide-locator-bar." + (on ? "on" : "off")));
 			}
 		});
 	}
