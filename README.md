@@ -14,7 +14,7 @@ A minimalistic mod that disables Waypoints/Locator Bar.
 When installed on the server-side:
 * Completely deactivates all waypoint/Locator Bar functionality
   * No waypoint or players will be tracked
-  * Gamerule ``locatorBar`` will have no effect
+  * Gamerule ``locator_bar`` will have no effect
 
 Additionally when installed on the client-side:
 * Provides a keybind to "Always hide the locator bar"
@@ -24,7 +24,7 @@ Additionally when installed on the client-side:
 ## Why?
 
 The whole Locator Bar feature is IMHO not mature and was rushed:
-* Even when Gamerule ``locatorBar`` is set to ``false`` the server will still track and calculate the movement of players and entities.<br/>This is not necessary and causes a performance impact.
+* Even when Gamerule ``locator_bar`` is set to ``false`` the server will still track and calculate the movement of players and entities.<br/>This is not necessary and causes a performance impact.
   * The whole calculation could be done on the client-side without causing additional server load
 * No one explicitly asked for this feature (AFAIK), yet it was implemented, enabled by default and declared as ready for production within 14 days
 * There are already name tags that solve the "Where are you???" problem... for over a decade
