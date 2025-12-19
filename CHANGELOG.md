@@ -1,3 +1,7 @@
+# 1.1.3
+* Updated depnedencies
+* New deployement process
+
 # 1.1.2
 * Updated to 1.21.11
 
