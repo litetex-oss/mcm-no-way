@@ -15,7 +15,7 @@ import com.mojang.blaze3d.platform.InputConstants;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
 import net.fabricmc.loader.api.FabricLoader;
 import net.litetex.noway.client.config.ClientConfig;
 import net.minecraft.client.KeyMapping;
@@ -83,7 +83,7 @@ public class NoWayFabricClientInitializer implements ClientModInitializer
 	
 	private void initKeys()
 	{
-		final KeyMapping kbToggleAlwaysHideLocatorBar = KeyBindingHelper.registerKeyBinding(new KeyMapping(
+		final KeyMapping kbToggleAlwaysHideLocatorBar = KeyMappingHelper.registerKeyMapping(new KeyMapping(
 			"no-way.toggle-always-hide-locator-bar",
 			InputConstants.Type.KEYSYM,
 			GLFW.GLFW_KEY_F10,
@@ -94,7 +94,7 @@ public class NoWayFabricClientInitializer implements ClientModInitializer
 			while(kbToggleAlwaysHideLocatorBar.consumeClick())
 			{
 				final boolean on = NoWayClient.instance().toggleAlwaysHideLocatorBar();
-				client.gui.getChat().addMessage(
+				client.gui.getChat().addClientSystemMessage(
 					Component.translatable("no-way.always-hide-locator-bar." + (on ? "on" : "off")));
 			}
 		});
