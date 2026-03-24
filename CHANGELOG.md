@@ -1,3 +1,6 @@
+# 1.2.0
+* Updated to 26.1
+
 # 1.1.3
 * Updated depnedencies
 * New deployement process
