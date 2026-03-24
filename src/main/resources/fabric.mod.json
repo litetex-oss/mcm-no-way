@@ -23,7 +23,7 @@
   "mixins": [
     "no-way.mixins.json"
   ],
-  "accessWidener": "no-way.accesswidener",
+  "accessWidener": "no-way.classtweaker",
   "requires": {
     "fabric-api": "*"
   },
