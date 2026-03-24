@@ -43,7 +43,7 @@ Nobody likely cares what a player 10k blocks away is doing yet it's still displa
 Add the following to ``build.gradle``:
 ```groovy
 dependencies {
-    modImplementation 'net.litetex.mcm:no-way:<version>'
+    implementation 'net.litetex.mcm:no-way:<version>'
     // Further documentation: https://wiki.fabricmc.net/documentation:fabric_loom
 }
 ```
