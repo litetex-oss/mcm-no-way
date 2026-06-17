@@ -18,7 +18,7 @@ public abstract class ServerWaypointHandlerMixin
 		method = "trackWaypoint(Lnet/minecraft/world/waypoints/WaypointTransmitter;)V",
 		at = @At("HEAD"),
 		cancellable = true)
-	public void onTrack(final WaypointTransmitter serverWaypoint, final CallbackInfo ci)
+	public void onTrack(final WaypointTransmitter waypoint, final CallbackInfo ci)
 	{
 		ci.cancel();
 	}
@@ -27,7 +27,7 @@ public abstract class ServerWaypointHandlerMixin
 		method = "updateWaypoint(Lnet/minecraft/world/waypoints/WaypointTransmitter;)V",
 		at = @At("HEAD"),
 		cancellable = true)
-	public void onUpdate(final WaypointTransmitter serverWaypoint, final CallbackInfo ci)
+	public void onUpdate(final WaypointTransmitter waypoint, final CallbackInfo ci)
 	{
 		ci.cancel();
 	}
@@ -36,7 +36,7 @@ public abstract class ServerWaypointHandlerMixin
 		method = "untrackWaypoint(Lnet/minecraft/world/waypoints/WaypointTransmitter;)V",
 		at = @At("HEAD"),
 		cancellable = true)
-	public void onUntrack(final WaypointTransmitter serverWaypoint, final CallbackInfo ci)
+	public void onUntrack(final WaypointTransmitter waypoint, final CallbackInfo ci)
 	{
 		ci.cancel();
 	}
@@ -81,7 +81,7 @@ public abstract class ServerWaypointHandlerMixin
 		method = "remakeConnections(Lnet/minecraft/world/waypoints/WaypointTransmitter;)V",
 		at = @At("HEAD"),
 		cancellable = true)
-	public void refreshTracking(final WaypointTransmitter serverWaypoint, final CallbackInfo ci)
+	public void refreshTracking(final WaypointTransmitter waypoint, final CallbackInfo ci)
 	{
 		ci.cancel();
 	}
