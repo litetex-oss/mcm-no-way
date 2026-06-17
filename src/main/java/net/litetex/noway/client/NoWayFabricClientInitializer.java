@@ -94,7 +94,7 @@ public class NoWayFabricClientInitializer implements ClientModInitializer
 			while(kbToggleAlwaysHideLocatorBar.consumeClick())
 			{
 				final boolean on = NoWayClient.instance().toggleAlwaysHideLocatorBar();
-				client.gui.getChat().addClientSystemMessage(
+				client.gui.hud.getChat().addClientSystemMessage(
 					Component.translatable("no-way.always-hide-locator-bar." + (on ? "on" : "off")));
 			}
 		});

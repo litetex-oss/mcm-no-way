@@ -5,11 +5,11 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 import net.litetex.noway.client.NoWayClient;
-import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.Hud;
 import net.minecraft.client.waypoints.ClientWaypointManager;
 
 
-@Mixin(Gui.class)
+@Mixin(Hud.class)
 public abstract class InGameHudMixin
 {
 	@Redirect(
