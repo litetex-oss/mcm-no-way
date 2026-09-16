@@ -5,7 +5,7 @@ import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import org.lwjgl.glfw.GLFW;
+import org.lwjgl.sdl.SDLKeycode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -85,8 +85,8 @@ public class NoWayFabricClientInitializer implements ClientModInitializer
 	{
 		final KeyMapping kbToggleAlwaysHideLocatorBar = KeyMappingHelper.registerKeyMapping(new KeyMapping(
 			"no-way.toggle-always-hide-locator-bar",
-			InputConstants.Type.KEYSYM,
-			GLFW.GLFW_KEY_F10,
+			InputConstants.Type.KEYBOARD,
+			SDLKeycode.SDLK_F10,
 			KeyMapping.Category.MISC
 		));
 		
