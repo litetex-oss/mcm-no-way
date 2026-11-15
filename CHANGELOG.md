@@ -1,3 +1,8 @@
+# 1.4.1
+* Fix mod compatibility
+  * Fix faulty keybinding under certain circumstances that can result in a crash when loading a world
+    * Existing keymapping might require a manual reset
+
 # 1.4.0
 * Updated to 26.3
 
